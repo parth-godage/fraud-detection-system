@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FraudShield | Transaction Security</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="grid"></div>
+    </div>
+
+    <main class="container">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div class="brand">
+                <div class="brand-icon">
+                    🛡️
+                </div>
+
+                <div>
+                    <h1>FraudShield</h1>
+                    <p>AI Transaction Security</p>
+                </div>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                System Online
+            </div>
+
+        </header>
+
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <div class="badge">
+                <span>✦</span>
+                AI-Powered Fraud Detection
+            </div>
+
+            <h2>
+                Detect suspicious transactions
+                <span>before they become a problem.</span>
+            </h2>
+
+            <p>
+                Analyze transaction patterns using a machine-learning
+                model trained to identify potentially fraudulent activity.
+            </p>
+
+        </section>
+
+
+        <!-- Main Card -->
+        <section class="card">
+
+            <div class="card-header">
+                <div>
+                    <h3>Transaction Analysis</h3>
+                    <p>Enter the transaction details below.</p>
+                </div>
+
+                <div class="secure-badge">
+                    🔒 Secure
+                </div>
+            </div>
+
+
+            <form id="fraudForm">
+
+                <!-- Transaction Type -->
+                <div class="field">
+                    <label for="type">
+                        Transaction Type
+                    </label>
+
+                    <select id="type" required>
+                        <option value="">Select transaction type</option>
+                        <option value="PAYMENT">Payment</option>
+                        <option value="TRANSFER">Transfer</option>
+                        <option value="CASH_OUT">Cash Out</option>
+                        <option value="CASH_IN">Cash In</option>
+                        <option value="DEBIT">Debit</option>
+                    </select>
+                </div>
+
+
+                <!-- Amount -->
+                <div class="field">
+                    <label for="amount">
+                        Transaction Amount
+                        <span>₹</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="e.g. 5000"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-grid">
+
+                    <!-- Step -->
+                    <div class="field">
+                        <label for="step">
+                            Transaction Step
+                        </label>
+
+                        <input
+                            type="number"
+                            id="step"
+                            placeholder="e.g. 1"
+                            min="1"
+                            required
+                        >
+
+                        <small>
+                            Time period in the dataset
+                        </small>
+                    </div>
+
+
+                    <!-- Sender Balance -->
+                    <div class="field">
+                        <label for="oldbalanceOrg">
+                            Sender's Previous Balance
+                        </label>
+
+                        <input
+                            type="number"
+                            id="oldbalanceOrg"
+                            placeholder="e.g. 10000"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <!-- Receiver Balance -->
+                <div class="field">
+                    <label for="oldbalanceDest">
+                        Receiver's Previous Balance
+                    </label>
+
+                    <input
+                        type="number"
+                        id="oldbalanceDest"
+                        placeholder="e.g. 25000"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+
+                <!-- Button -->
+                <button type="submit" id="analyzeBtn">
+
+                    <span class="button-text">
+                        Analyze Transaction
+                        <span class="arrow">→</span>
+                    </span>
+
+                    <span class="loader"></span>
+
+                </button>
+
+            </form>
+
+
+            <!-- Result -->
+            <div id="result" class="result hidden">
+
+                <div class="result-icon" id="resultIcon"></div>
+
+                <div class="result-content">
+
+                    <span class="result-label">
+                        ANALYSIS RESULT
+                    </span>
+
+                    <h3 id="resultTitle"></h3>
+
+                    <p id="resultMessage"></p>
+
+                    <div class="probability-container">
+
+                        <div class="probability-header">
+                            <span>Fraud Probability</span>
+                            <strong id="probabilityText">0%</strong>
+                        </div>
+
+                        <div class="progress">
+                            <div
+                                id="probabilityBar"
+                                class="progress-bar">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <div>
+                <span class="footer-dot"></span>
+                ML Model Active
+            </div>
+
+            <span>FraudShield • AI Security System</span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
